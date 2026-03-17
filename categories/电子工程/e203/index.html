@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="EleCannonic">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+        
+        
+        
+            <link rel="preconnect" href="https://evan.beee.top" crossorigin>
+        
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://elecannonic.github.io/zh/categories/电子工程/e203/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Build real science.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一起阅读 hbird_e203 CPU源代码">
+<meta property="og:url" content="https://elecannonic.github.io/zh/categories/%E7%94%B5%E5%AD%90%E5%B7%A5%E7%A8%8B/e203/index.html">
+<meta property="og:site_name" content="ELECANNONIC">
+<meta property="og:description" content="Build real science.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://elecannonic.github.io/images/global/redefine-og.webp">
+<meta property="article:published_time" content="2025-09-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-09T09:58:02.000Z">
+<meta property="article:author" content="EleCannonic">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://elecannonic.github.io/images/global/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/zh/images/global/logo.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/zh/images/global/logo.png">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/zh/images/global/logo.png">
+    <!--- Page Info-->
+    
+    <title>
+        
+            一起阅读 hbird_e203 CPU源代码 | ELECANNONIC
+        
+    </title>
+
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fonts/Chillax/chillax.css">
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/zh/css/style.css">
+
+
+    
+        <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/css/build/tailwind.css">
+    
+
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fonts/GeistMono/geist-mono.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fonts/Geist/geist.css">
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"elecannonic.github.io","root":"/zh/","language":"zh-CN"};
+    window.theme = {"articles":{"style":{"font_size":"18px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"2.5rem","h2":"2.2rem","h3":"1.8rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":false,"auto":false,"list":[]},"code_block":{"copy":true,"style":"simple","highlight_theme":{"light":"github","dark":"github-dark"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":false,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":null,"limit":3,"mobile_limit":2,"placeholder":"/zh/images/global/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"dark"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":null},"open_graph":{"enable":true,"image":"/images/global/redefine-og.webp","description":"Build real science."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/global/background_light.png","dark":"/images/global/background_dark.png"},"title":"Build real science.","subtitle":{"text":[],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#000","dark":"#d1d1b6"},"text_style":{"title_size":"3.5rem","subtitle_size":"1.2rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"首页":{"path":"/","icon":"fa-regular fa-house"},"科学与工程":{"icon":"fa-regular fa-microchip","submenus":{"数学":"/categories/数学","物理":"/categories/物理","电子工程":"/categories/电子工程"}},"解决方案":{"path":"/categories/解决方案","icon":"fa-regular fa-newspaper"},"关于我们":{"icon":"fa-regular fa-user","submenus":{"关于我们":"/about","友情链接":"/links","Github":"https://github.com/EleCannonic"}},"语言":{"icon":"fa-regular fa-globe","submenus":{"English":"https://elecannonic.github.io","简体中文":"https://elecannonic.github.io/zh","Deutsch":"https://elecannonic.github.io/de"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":null,"excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":false,"limit":3}},"footerStart":"2025/5/28 00:00:00"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/brands.min.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/solid.min.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/regular.min.css">
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+                <a class="logo-image h-8 w-8 sm:w-10 sm:h-10 mr-3" href="/zh/">
+                    <img src="/zh/images/global/logo.png" class="w-full h-full rounded-sm">
+                </a>
+            
+            <a class="logo-title" href="/zh/">
+                
+                ELECANNONIC
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/zh/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-microchip fa-fw"></i>
+                                    科学与工程
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="/zh/categories/%E6%95%B0%E5%AD%A6">
+                                                    数学
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/zh/categories/%E7%89%A9%E7%90%86">
+                                                    物理
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/zh/categories/%E7%94%B5%E5%AD%90%E5%B7%A5%E7%A8%8B">
+                                                    电子工程
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/zh/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"
+                                        >
+                                    <i class="fa-regular fa-newspaper fa-fw"></i>
+                                    解决方案
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-user fa-fw"></i>
+                                    关于我们
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="/zh/about">
+                                                    关于我们
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/zh/links">
+                                                    友情链接
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://github.com/EleCannonic">
+                                                    GITHUB
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-globe fa-fw"></i>
+                                    语言
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="https://elecannonic.github.io">
+                                                    ENGLISH
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="https://elecannonic.github.io/zh">
+                                                    简体中文
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="https://elecannonic.github.io/de">
+                                                    DEUTSCH
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/zh/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-科学与工程"
+                        >
+                            <span>
+                                科学与工程
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-科学与工程">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/zh/categories/%E6%95%B0%E5%AD%A6">数学</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/zh/categories/%E7%89%A9%E7%90%86">物理</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/zh/categories/%E7%94%B5%E5%AD%90%E5%B7%A5%E7%A8%8B">电子工程</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/zh/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"
+                        >
+                            <span>
+                                解决方案
+                            </span>
+                            
+                                <i class="fa-regular fa-newspaper fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-关于我们"
+                        >
+                            <span>
+                                关于我们
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-关于我们">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/zh/about">关于我们</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/zh/links">友情链接</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://github.com/EleCannonic">GITHUB</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-语言"
+                        >
+                            <span>
+                                语言
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-语言">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="https://elecannonic.github.io">ENGLISH</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="https://elecannonic.github.io/zh">简体中文</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="https://elecannonic.github.io/de">DEUTSCH</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+
+            
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/zh/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">0</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/zh/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/zh/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">8</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">一起阅读 hbird_e203 CPU源代码</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/zh/images/global/personal.png">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">EleCannonic</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-09-09</span>
+        <span class="mobile">2025-09-09</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2026-03-09 17:58:02</span>
+            <span class="mobile">2026-03-09 17:58:02</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/zh/categories/%E7%94%B5%E5%AD%90%E5%B7%A5%E7%A8%8B/">电子工程</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<blockquote>
+<p><strong>版权声明</strong>:</p>
+<p>本文采用 <strong><a class="link" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></strong> 许可协议。</p>
+<p>许可信息：</p>
+<ul>
+<li>标题：一起阅读 hbird_e203 CPU源代码</li>
+<li>作者：EleCannonic</li>
+<li>链接：<a href="https://elecannonic.github.io/zh/categories/%E7%94%B5%E5%AD%90%E5%B7%A5%E7%A8%8B/e203/">https://elecannonic.github.io/zh/categories/电子工程/e203/</a></li>
+</ul>
+<p>严禁将本文内容用于商业用途。有关许可政策的更多详情，请访问 <a href="/about">关于</a> 页面。</p>
+</blockquote>
+<p><strong>注意：本文仅为思路记录，信息量不足以进行系统学习，请勿作为教材使用。可作为参考。</strong></p>
+<p>作为深入了解 CPU 世界的开端，<br>hbird_e203 是一个不错的项目。</p>
+<p>项目链接如下：<a class="link" target="_blank" rel="noopener" href="https://github.com/riscv-mcu/e203_hbirdv2">Hummingbird E203<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h2 id="1-指令集架构-ISA"><a href="#1-指令集架构-ISA" class="headerlink" title="1. 指令集架构 (ISA)"></a>1. 指令集架构 (ISA)</h2><p>hbird_e203 应用了 RISC-V ISA，<br>其设计简洁。<br>RISC-V ISA 中的指令是严格排序的。</p>
+<div align="center">
+<img lazyload="" src="/images/loading.svg" data-src="/zh/images/e203/e203_ins.png" width="400" height="300">
+</div>
+<center>RISC-V 指令格式</center>
+
+<p>RISC-V 只支持小端序。<br>什么是小端序和大端序？<br>嗯，让我们用一张图来解释：</p>
+<div align="center">
+<img lazyload="" src="/images/loading.svg" data-src="/zh/images/e203/e203_endian.png" width="400" height="300">
+</div>
+<center>小端序和大端序的解释</center>
+
+<p>如果 ISA 应用小端序，<br>存储的数据是 <code>0x78563412</code>。<br>如果是大端序，<br>则应为 <code>0x12345678</code>。</p>
+<h2 id="2-标准-DFF-寄存器"><a href="#2-标准-DFF-寄存器" class="headerlink" title="2. 标准 DFF 寄存器"></a>2. 标准 DFF 寄存器</h2><p>hbird_e203 使用模块化的标准 DFF 模块来构建寄存器，<br>而不是使用 <code>always</code> 块。</p>
+<div class="code-container" data-rel="Verilog"><figure class="iseeu highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">wire</span> flg_r; <span class="comment">// output signal</span></span><br><span class="line"><span class="keyword">wire</span> flg_nxt = ~flg_r; <span class="comment">// input signal</span></span><br><span class="line"><span class="keyword">wire</span> flg_ena = (ptr == ('E203_OITF_DEPTH-<span class="number">1</span>) &amp; ptr_ena);</span><br><span class="line"></span><br><span class="line"><span class="comment">// instantiating standard DFF modules</span></span><br><span class="line">sirv_gnrl_dfflr <span class="variable">#(1) flg_dfflrs(flg_ena, flg_nxt, flg_r, clk, rst_n)</span>;</span><br></pre></td></tr></table></figure></div>
+
+<p>在另一个模块中，<code>sirv_gnrl_dfflr</code> 设计如下：</p>
+<div class="code-container" data-rel="Verilog"><figure class="iseeu highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> sirv_gnrl_dfflr # (</span><br><span class="line">    <span class="keyword">parameter</span> DW = <span class="number">32</span> <span class="comment">// This is a 32bit width DFF, by transmitting parameter DW can be vaired.</span></span><br><span class="line">) (</span><br><span class="line"></span><br><span class="line">    <span class="keyword">input</span>               lden,</span><br><span class="line">    <span class="keyword">input</span>      [DW-<span class="number">1</span>:<span class="number">0</span>] dnxt,</span><br><span class="line">    <span class="keyword">output</span>     [DW-<span class="number">1</span>:<span class="number">0</span>] qout,</span><br><span class="line"></span><br><span class="line">    <span class="keyword">input</span>               clk,  <span class="comment">// clock</span></span><br><span class="line">    <span class="keyword">input</span>               rst_n <span class="comment">// negative valid reset, synchronous</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">reg</span> [DW-<span class="number">1</span>:<span class="number">0</span>] qout_r;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk <span class="keyword">or</span> <span class="keyword">negedge</span> rst_n)</span><br><span class="line">    <span class="keyword">begin</span> : DFFLR_PROC <span class="comment">// DFFLR_PROC is just a label of this always block. No effect on functions.</span></span><br><span class="line">        <span class="keyword">if</span> (rst_n == <span class="number">1'b0</span>)</span><br><span class="line">            qout_r &lt;= {DW{<span class="number">1'b0</span>}}; <span class="comment">// reset, output pull down</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (lden == <span class="number">1'b1</span>)</span><br><span class="line">            qout_r &lt;= #<span class="number">1</span> dnxt;</span><br><span class="line">            <span class="comment">// #1: delay of 1 time-unit. No effect in synthesis. Debug method in simulation.</span></span><br><span class="line">            <span class="comment">// dnxt: data to be assigned</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">assign</span> qout = qout_r;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// introduce a checker, conditional compile.</span></span><br><span class="line">    <span class="comment">// only used in simulation, no hardware circuit produced</span></span><br><span class="line">    <span class="meta">`<span class="keyword">ifndef</span> FPGA_SOURCE</span><span class="comment">//{</span></span><br><span class="line">    <span class="meta">`<span class="keyword">ifndef</span> DISABLE_SV_ASSERTION</span><span class="comment">//{</span></span><br><span class="line">    <span class="comment">//synopsys translate_off</span></span><br><span class="line">        sirv_gnrl_xchecker # (</span><br><span class="line">        <span class="variable">.DW</span>(<span class="number">1</span>)</span><br><span class="line">        ) sirv_gnrl_xchecker(</span><br><span class="line">        <span class="variable">.i_dat</span>(lden),</span><br><span class="line">        <span class="variable">.clk</span>  (clk)</span><br><span class="line">        );</span><br><span class="line">    <span class="comment">//synopsys translate_on</span></span><br><span class="line">    <span class="meta">`<span class="keyword">endif</span></span><span class="comment">//}</span></span><br><span class="line">    <span class="meta">`<span class="keyword">endif</span></span><span class="comment">//}</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure></div>
+<p>使用标准模块，<br>可以方便地全局替换寄存器类型或插入延迟。<br><code>xchecker</code> 模块捕获未定义状态。<br>一旦检测到，它会报告错误并中止仿真。</p>
+<h2 id="3-if-else-和-assign"><a href="#3-if-else-和-assign" class="headerlink" title="3. if-else 和 assign"></a>3. <code>if-else</code> 和 <code>assign</code></h2><p>本项目建议用 <code>assign</code> 替换 <code>if-else</code>。<br>因为 <code>if-else</code> 有两个主要缺点：</p>
+<ul>
+<li><p><code>if-else</code> 无法传递未定义状态 <code>X</code>。</p>
+<div class="code-container" data-rel="Verilog"><figure class="iseeu highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(flg)</span><br><span class="line">    out = in1;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    out = in2;</span><br></pre></td></tr></table></figure></div>
+<p>如果 <code>flg == X</code>，verilog 会将其等同于 <code>flg == 0</code>，<br>最终输出将是 <code>out = in2</code>，<br>这并没有传递 <code>X</code> 状态。</p>
+<p>然而，如果使用 <code>assign</code></p>
+<div class="code-container" data-rel="Verilog"><figure class="iseeu highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">assign</span> out = flg ? in1 : in2;</span><br></pre></td></tr></table></figure></div>
+<p><code>X</code> 状态将被传递。<br>这种传递将使调试更容易。</p>
+</li>
+<li><p><code>if-else</code> 会被综合成优先级多路选择器 (MUX)，<br>这会带来较大的面积和较差的时序。<br>以下面的 MUX 为例：</p>
+<div class="code-container" data-rel="Verilog"><figure class="iseeu highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (sel1)</span><br><span class="line">    out = in1[<span class="number">3</span>:<span class="number">0</span>];</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (sel2)</span><br><span class="line">    out = in2[<span class="number">3</span>:<span class="number">0</span>];</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (sel3)</span><br><span class="line">    out = in3[<span class="number">3</span>:<span class="number">0</span>];</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    out = <span class="number">4'b0</span>;</span><br></pre></td></tr></table></figure></div>
+<p>综合后，这段代码会变成</p>
+<div align="center">
+<img lazyload="" src="/images/loading.svg" data-src="/zh/images/e203/e203_pr_mux.png" width="400" height="300">
+</div>
+<center>优先级 MUX</center></li>
+</ul>
+<p>3 个 MUX 显然会占用更大的面积。<br>但如果我们使用 <code>assign</code>：</p>
+<div class="code-container" data-rel="Verilog"><figure class="iseeu highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">assign</span> out =   ({<span class="number">4</span>{sel1}} &amp; in1[<span class="number">3</span>:<span class="number">0</span>])</span><br><span class="line">             | ({<span class="number">4</span>{sel2}} &amp; in2[<span class="number">3</span>:<span class="number">0</span>])</span><br><span class="line">             | ({<span class="number">4</span>{sel3}} &amp; in3[<span class="number">3</span>:<span class="number">0</span>]);</span><br></pre></td></tr></table></figure></div>
+<p>这是一个并行门控 MUX。<br><code>sel</code> 信号充当门控控制，<br>它们并行地作用于三个 <code>in</code> 信号。<br>它将被综合成</p>
+<div align="center">
+<img lazyload="" src="/images/loading.svg" data-src="/zh/images/e203/e203_pa_mux.png" width="400" height="300">
+</div>
+<center>并行 MUX</center>
+
+<h2 id="4-数据冒险"><a href="#4-数据冒险" class="headerlink" title="4. 数据冒险"></a>4. 数据冒险</h2><ul>
+<li><p>RAW (Read After Write) - 写后读<br>假设指令 <code>j</code> 需要一个操作数，<br>该操作数应由指令 <code>i</code> 提供。<br>因此，<code>i</code> 的写回 (WB) 必须在 <code>j</code> 的寄存器读取之前执行。</p>
+<p>例如：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">i: ADD x1, x2, x3 ; (x2 + x3 -&gt; x1)</span><br><span class="line">j: SUB x4, x1, x5 ; (x1 - x5 -&gt; x4)</span><br></pre></td></tr></table></figure></div>
+
+<p>在流水线中，<br>当 <code>j</code> 执行 ID (指令译码) 时，<br><code>i</code> 可能仍在执行 EX (执行)，<br>结果尚未写入寄存器堆。<br>在这种情况下，<code>j</code> 将读取错误的操作数。</p>
+<p>为了解决这个问题，<br>流水线可以应用停顿 (stalling) 来暂停后续指令，<br>等待 <code>i</code> 的写回。<br>但最常用的方法是数据转发 (Data Forwarding)。<br>CPU 将直接将 <code>i</code> 的 EX 或 MEM (访存) 阶段的结果发送给 <code>j</code>，<br>而不是等待 <code>i</code> 完成写回。<br>与停顿相比，这种方法提高了效率。</p>
+</li>
+<li><p>WAR (Write After Read) - 读后写<br>指令 <code>j</code> 尝试写入一个寄存器，<br>但另一条指令 <code>i</code> 需要读取该寄存器中的操作数。<br><code>i</code> 的读取必须在 <code>j</code> 的写入之前完成。</p>
+<p>示例：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">i: SUB x4, x1, x5  ; read x1</span><br><span class="line">j: ADD x1, x2, x3  ; write x1</span><br><span class="line">k: MUL x6, x1, x7  ; read x1</span><br></pre></td></tr></table></figure></div>
+
+<p>如果流水线是按序执行的 (in-order)，<br>则没有问题。<br>然而，在乱序执行 (out-of-order) 的流水线中，<br>如果 <code>x2</code> 和 <code>x3</code> 提前准备好，<br><code>j</code> 可能比 <code>i</code> 先完成执行。<br>那么 <code>i</code> 将得到错误的结果。</p>
+<p>为了解决这个问题，CPU 会重命名寄存器。</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">i: SUB x4, P1, x5   ; // P1 代表旧的 x1 值</span><br><span class="line">j: ADD P2, x2, x3   ; // P2 代表新的 x1 值，与 P1 无关</span><br><span class="line">k: MUL x6, P2, x7   ; // 使用新值</span><br></pre></td></tr></table></figure></div>
+
+<p>为了实现重命名，<br>CPU 会创建一个从外部寄存器文件 (ISA 寄存器) 到内部寄存器的映射表。<br>然后写入和读取就不会相互影响了。</p>
+</li>
+<li><p>WAW (Write After Write) - 写后写<br>两条指令 <code>i</code> 和 <code>j</code>，<br>都将一个数字写入同一个寄存器。<br>正确的顺序是 <code>i</code> 先写，<code>j</code> 后写。<br>同样，WAW 也发生在乱序执行的流水线中。<br>如果 <code>j</code> 先完成，<br>最终结果应该是 <code>i</code> 的结果，这是错误的。</p>
+<p>解决方案也是重命名。</p>
+</li>
+</ul>
+<h2 id="5-指令获取-IF"><a href="#5-指令获取-IF" class="headerlink" title="5. 指令获取 (IF)"></a>5. 指令获取 (IF)</h2><p>IF 的最终目标是“快速”和“连续”。</p>
+<h3 id="ITCM"><a href="#ITCM" class="headerlink" title="ITCM"></a>ITCM</h3><p>为了使 IF 更快，<br>我们需要减小内存的读取延迟。<br>通用内存可能有几十个时钟周期的延迟，<br>这远远不能满足我们的要求。</p>
+<p>通常，现代 CPU 会创建一个小型内存（几十 KB）<br>用于存储指令，<br>它物理上靠近核心。<br>这个内存称为 ITCM (指令紧耦合内存)。</p>
+<p>ITCM 不是 DDR 或缓存。<br>它只是一个具有特定地址的小型内存。<br>与缓存相比，其延迟是可预测的。<br>因此，在高性能要求的场合，<br>工程师倾向于使用 ITCM。</p>
+<h3 id="非对齐指令"><a href="#非对齐指令" class="headerlink" title="非对齐指令"></a>非对齐指令</h3><p>RISC-V 支持压缩指令 (C 扩展)。<br>CPU 需要处理 32 位和 16 位指令的混合。<br>那么 CPU 如何知道它是 32 位还是 16 位指令呢？</p>
+<p><strong>32 位 RISC-V 指令的操作码的最低两位必须是 <code>0b11</code>。</strong></p>
+<p>CPU 根据最低两位（称之为 LS2B）来区分指令。<br>如果 LS2B 是 <code>0b11</code>，则是 32 位；<br>否则是 16 位。</p>
+<p>那么 CPU 如何处理它们呢？<br>让我们详细说明流程。</p>
+<ul>
+<li><p>组件</p>
+<ul>
+<li>获取宽度 (Fetch Width)：为了效率，CPU 会一次性从 ITCM 获取超过半个字的数据。<br>它通常获取更多，例如 32 位。</li>
+<li>指令预取队列 (Instruction Prefetch Queue, IPQ)：<br>IFU 和解码器之间的 FIFO。</li>
+<li>RISC-V 规则：<br>如果 <code>LS2B = 0b11</code>，则是 32 位指令；否则是 16 位指令。</li>
+</ul>
+</li>
+<li><p>工作流程</p>
+<ul>
+<li><p>根据 PC 值，IFU 从 ITCM 获取一个字 (32 位) 并将其插入 IPQ 的底部。</p>
+</li>
+<li><p>ID 从 IPQ 的顶部获取一个半字 (16 位)，然后判断它是否是压缩指令。</p>
+<ul>
+<li><p>情况 A：是 16 位压缩指令</p>
+<p>ID 消耗 IPQ 中的前 16 位，并将它们作为一个完整的指令发送给后续部分。<br>IPQ 的指针移动 2 字节。</p>
+</li>
+<li><p>情况 B：是 32 位指令的一部分</p>
+<p>ID 需要更多数据。它消耗 IPQ 中的前 32 位，然后将其发送给后续部分。<br>IPQ 的指针移动 4 字节。</p>
+</li>
+</ul>
+</li>
+<li><p>这些步骤将重复进行。<br>当 IPQ 中的数据少于 32 位时，<br>IFU 将执行下一次 32 位读取操作，并将数据填充到 IPQ 的末尾。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="分支指令"><a href="#分支指令" class="headerlink" title="分支指令"></a>分支指令</h3><p>RISC-V 中有两种分支指令。</p>
+<ul>
+<li><p>无条件跳转：无需判断条件。<br>也有两种无条件跳转。</p>
+<ul>
+<li><p>直接跳转：目标地址可以通过指令中的 <code>imm</code> 直接计算。</p>
+<p>示例：<code>jal x5, imm</code>，<code>imm</code> 是 20 位，跳转到地址 <code>2*imm + PC</code>。</p>
+</li>
+<li><p>间接跳转：目标地址需要从寄存器堆中的数据计算。</p>
+<p>示例：<code>jalr x1, x6, imm</code>，<code>imm</code> 是 12 位，跳转到地址 <code>imm + x6</code>。</p>
+</li>
+</ul>
+</li>
+<li><p>条件跳转：带条件的跳转。<br>同样有两种类型：直接和间接。但在 RISC-V 中没有间接指令。</p>
+</li>
+</ul>
+<h3 id="分支预测"><a href="#分支预测" class="headerlink" title="分支预测"></a>分支预测</h3><p>解决两个问题：</p>
+<ul>
+<li>是否跳转 (方向)</li>
+<li>目标地址是什么 (地址)</li>
+</ul>
+<p>静态预测：始终预测相同的结局或遵循固定模式。(BTFN - Branch To False Not taken)</p>
+<p>跳转方向：目标 PC &lt; 当前 PC，称为回跳 (back)；否则称为前跳 (forward)。</p>
+<p>动态预测：</p>
+<ul>
+<li><p>1 位饱和计数器：使用上一次的方向进行预测。<br>出错时进行修改。</p>
+</li>
+<li><p>2 位饱和计数器：</p>
+<p>查看状态机：</p>
+</li>
+</ul>
+<div align="center">
+<img lazyload="" src="/images/loading.svg" data-src="/zh/images/e203/e203_2bs.png" width="800" height="600">
+</div>
+<center>2 位饱和计数器 FSM 图</center>
+
+<p>2 位饱和计数器对于预测单个指令是有效的。<br>但对于许多指令（在不同 PC 地址）则不然。<br>（它们会发生冲突）<br>理想情况下，每条跳转指令都应该有自己的预测器，<br>但这会带来不可接受的硬件成本。<br>因此，在实践中，只有有限的预测器组成一个表（分支预测表）。</p>
+<p>准确预测过程：<strong>索引</strong></p>
+<ul>
+<li>一条指令进入流水线，<code>PC = 0x12345678</code>。</li>
+<li>CPU 取最低几位（例如 10 位），索引 <code>0x678 = 0d1656</code>。</li>
+<li>CPU 使用索引 <code>0d1656</code> 访问 BPT (Branch Prediction Table)，找到一个 2 位饱和计数器。</li>
+<li>预测器运行预测，更新状态，…</li>
+</ul>
+<p>事实上，指令的数量远大于预测器的数量。<br>因此，许多不同的指令必须使用相同的预测器。<br>这个问题称为**别名 (Aliasing)**。</p>
+<p>有一种更复杂但性能更好的方法，<br>称为**基于相关性的分支预测器 (Correlation-Based Branch Predictor)**。</p>
+<ul>
+<li>为什么需要它</li>
+</ul>
+<p>考虑一段代码</p>
+<div class="code-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (a &gt; <span class="number">10</span>) { <span class="comment">// branch A</span></span><br><span class="line">  Hajimi nameiluduo axigaaxi;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">Dingdongji Dingdongji, Dagou Dagou Jiaojiaojiao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (b &gt; <span class="number">20</span> &amp;&amp; a &gt; <span class="number">10</span>) { <span class="comment">// branch B</span></span><br><span class="line">  Axiga Yakunalu Hajimi Haji;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<p>B 是否跳转取决于 <code>b &gt; 20</code> 和分支 A 的结果。<br>如果 A 没有跳转，B 也必须不跳转。<br>单个预测器表无法处理这种情况。</p>
+<p>两个组件：</p>
+<ul>
+<li>全局历史寄存器 (Global History Register, GHR)：宽度为 <code>N</code>，记录最近 <code>N</code> 条指令的结果。</li>
+<li>模式历史表 (Pattern History Table, PHT)：由 2 位计数器组成的数组。</li>
+</ul>
+<p>索引方法：<code>PC ^ GHR</code>。<br>2 位计数器记录“当全局历史处于某种模式时，分支 B 将如何执行”，<br>而不是分支 B 本身的历史。</p>
+<p><strong>过程</strong>：</p>
+<p>假设 GHR 宽度为 2 位。初始状态为 <code>00</code>。</p>
+<ul>
+<li><p>执行 1：假设 <code>a = 5</code>，A 不跳转，记录为 <code>0</code>，GHR 左移，在 LSB 填充 <code>0</code>。<br>GHR = <code>00</code>。<br>B 不跳转，记录为 <code>0</code>，GHR 左移，在 LSB 填充 <code>0</code>。</p>
+</li>
+<li><p>执行 2：假设 <code>a = 15, b = 25</code>，A 跳转，GHR = <code>01</code>。<br>执行 B 之前，生成索引，<code>idx = Hash(PC_B, 01)</code>。<br>找到一个 2 位计数器（假设初始状态为 <code>11</code>，<br>表示上次分支跳转时，B 倾向于不跳转）。</p>
+<p>进行预测：B 将不跳转。</p>
+<p>实际结果：预测失败！<br>计数器：<code>11 -&gt; 10</code>。<br>GHR：<code>01 -&gt; 11</code>。</p>
+</li>
+</ul>
+<p>这些步骤重复进行。</p>
+<h2 id="6-E200-IFU-实现"><a href="#6-E200-IFU-实现" class="headerlink" title="6. E200 IFU 实现"></a>6. E200 IFU 实现</h2><p>RISC-V 将长度指示器放在最低有效位。<br>因此，IF 逻辑可以在获取最低位后立即识别长度。<br>更重要的是，<br>由于压缩指令集是可选的，<br>如果 CPU 未设计为支持压缩集，<br>它可以直接忽略最低位，<br>这可以节省约 6.25% 的 I-cache 成本。</p>
+<h3 id="整体设计理念"><a href="#整体设计理念" class="headerlink" title="整体设计理念"></a>整体设计理念</h3><p>IFU 模块具有如下微架构：</p>
+<div align="center">
+<img lazyload="" src="/images/loading.svg" data-src="/zh/images/e203/e203_ifu_str.png" width="800" height="600">
+</div>
+<center>IFU 微架构</center>
+
+<p>它试图“快速”且“连续”地获取指令。<br>E203 假设大多数指令存储在 ITCM 中，<br>因为它专为超低功耗、嵌入式场景设计，<br>它不会加载长代码。<br>通常代码都可以加载到 ITCM 中。</p>
+<p>IF 模块只需一个周期即可获取一条指令，<br>这已经达到了快速的要求。<br>当它需要从 BIU 获取指令时，<br>会有更多的延迟，但这种情况远少于 ITCM，<br>因此 E203 没有为这些情况进行优化<br>（为了更高的性能，可能需要这样的优化）。</p>
+<p>对于“连续性”，<br>每次 IF 都应该预测下一个 <code>PC</code> 值。<br>IF 部分解码获取的指令并判断是否需要跳转。<br>如果需要，<br>分支预测器在同一周期运行，<br>IF 使用结果和解码信息来生成下一个 <code>PC</code>。</p>
+<h3 id="Mini-decode-微型译码"><a href="#Mini-decode-微型译码" class="headerlink" title="Mini-decode (微型译码)"></a>Mini-decode (微型译码)</h3><p>此模块只需要判断它是通用指令还是分支指令。<br>为了简化设计过程，<br>此模块通过实例化一个完整的译码模块来实现，<br>将不相关的输入接地，输出不连接。<br>综合工具会优化冗余逻辑，最终实现一个微型译码器。</p>
+<div class="code-container" data-rel="Verilog"><figure class="iseeu highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">`<span class="keyword">include</span> "e203_defines.v"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">module</span> e203_ifu_minidec(</span><br><span class="line"></span><br><span class="line">  <span class="comment">// The IR stage to Decoder</span></span><br><span class="line">  <span class="keyword">input</span>  [`E203_INSTR_SIZE-<span class="number">1</span>:<span class="number">0</span>] instr,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// The Decoded Info-Bus</span></span><br><span class="line">  <span class="keyword">output</span> dec_rs1en,</span><br><span class="line">  <span class="keyword">output</span> dec_rs2en,</span><br><span class="line">  <span class="keyword">output</span> [`E203_RFIDX_WIDTH-<span class="number">1</span>:<span class="number">0</span>] dec_rs1idx,</span><br><span class="line">  <span class="keyword">output</span> [`E203_RFIDX_WIDTH-<span class="number">1</span>:<span class="number">0</span>] dec_rs2idx,</span><br><span class="line"></span><br><span class="line">  <span class="keyword">output</span> dec_mulhsu,</span><br><span class="line">  <span class="keyword">output</span> dec_mul   ,</span><br><span class="line">  <span class="keyword">output</span> dec_div   ,</span><br><span class="line">  <span class="keyword">output</span> dec_rem   ,</span><br><span class="line">  <span class="keyword">output</span> dec_divu  ,</span><br><span class="line">  <span class="keyword">output</span> dec_remu  ,</span><br><span class="line"></span><br><span class="line">  <span class="keyword">output</span> dec_rv32, <span class="comment">// indicate bits of instruction (16bits or 32bits)</span></span><br><span class="line">  <span class="keyword">output</span> dec_bjp,  <span class="comment">// general or branch instructions</span></span><br><span class="line">  <span class="keyword">output</span> dec_jal,  <span class="comment">// whether jal</span></span><br><span class="line">  <span class="keyword">output</span> dec_jalr, <span class="comment">// whether jalr</span></span><br><span class="line">  <span class="keyword">output</span> dec_bxx,  <span class="comment">// whether conditional jump instructions</span></span><br><span class="line">  <span class="keyword">output</span> [`E203_RFIDX_WIDTH-<span class="number">1</span>:<span class="number">0</span>] dec_jalr_rs1idx, <span class="comment">// index of rs1 register for jalr</span></span><br><span class="line">  <span class="keyword">output</span> [`E203_XLEN-<span class="number">1</span>:<span class="number">0</span>] dec_bjp_imm  <span class="comment">// imm of conditional jump</span></span><br><span class="line"></span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  <span class="comment">// a complete decode module</span></span><br><span class="line">  e203_exu_decode u_e203_exu_decode(</span><br><span class="line"></span><br><span class="line">  <span class="variable">.i_instr</span>(instr),</span><br><span class="line">  <span class="variable">.i_pc</span>(`E203_PC_SIZE'b0),</span><br><span class="line">  <span class="comment">// ......</span></span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure></div>
+
+<p>我们将在后续章节中详细研究译码模块，而不是在这里。</p>
+<h3 id="Ready-Valid握手"><a href="#Ready-Valid握手" class="headerlink" title="Ready/Valid握手"></a>Ready/Valid握手</h3><p>Ready/Valid 握手是一种协议，用于确保两个设备之间数据的正确传输。</p>
+<div align="center">
+<img lazyload="" src="/images/loading.svg" data-src="/zh/images/e203/e203_handshake.png" width="400" height="300">
+</div>
+<center>握手协议示意图</center>
+
+<p>规则很简单：<br>数据传输仅在同一个时钟周期内，<code>ready</code> 和 <code>valid</code> 都为 ‘<code>1</code>‘ 时发生。<br>握手是一种无状态协议。<br>任何一方都不需要记住前一个时钟周期的事件<br>来确定当前周期是否发生数据传输。<br>此外，双方必须同步操作，并在同一时钟边沿读取控制信号。<br>因此，ready/valid 不适用于跨时钟域 (CDC)。</p>
+<h3 id="简单的-BPU-分支预测器"><a href="#简单的-BPU-分支预测器" class="headerlink" title="简单的 BPU 分支预测器"></a>简单的 BPU 分支预测器</h3><p>为了实现低功耗，E203 应用了最简单的静态预测。<br>对于条件直接跳转指令，<br>向后跳转被预测为需要跳转；<br>否则，预测为不需要跳转。<br>同时 BPU 通过 <code>PC + offset</code> 生成下一个 <code>PC</code>。</p>
+<p>文件位于模块 <code>e203_ifu_litebpu.v</code></p>
+<div class="code-container" data-rel="Verilog"><figure class="iseeu highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">`<span class="keyword">include</span> "e203_defines.v"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">module</span> e203_ifu_litebpu(</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Current PC</span></span><br><span class="line">  <span class="keyword">input</span>  [`E203_PC_SIZE-<span class="number">1</span>:<span class="number">0</span>] pc,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// The mini-decoded info</span></span><br><span class="line">  <span class="keyword">input</span>  dec_jal,   <span class="comment">// whether jal</span></span><br><span class="line">  <span class="keyword">input</span>  dec_jalr,  <span class="comment">// whether jalr</span></span><br><span class="line">  <span class="keyword">input</span>  dec_bxx,   <span class="comment">// where conditional jump</span></span><br><span class="line">  <span class="keyword">input</span>  [`E203_XLEN-<span class="number">1</span>:<span class="number">0</span>] dec_bjp_imm,  <span class="comment">// imm of conditional jump, target address is PC + imm</span></span><br><span class="line">  <span class="keyword">input</span>  [`E203_RFIDX_WIDTH-<span class="number">1</span>:<span class="number">0</span>] dec_jalr_rs1idx, <span class="comment">// index of rs1 in jalr</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// The IR index and OITF status to be used for checking dependency</span></span><br><span class="line">  <span class="keyword">input</span>  oitf_empty,  <span class="comment">// whether OITF is empty</span></span><br><span class="line">  <span class="keyword">input</span>  ir_empty,    <span class="comment">// whether IR is empty</span></span><br><span class="line">  <span class="keyword">input</span>  ir_rs1en,    <span class="comment">// whether to use rs1 in IR</span></span><br><span class="line">  <span class="keyword">input</span>  jalr_rs1idx_cam_irrdidx, <span class="comment">// whether index of rs1 matches that of IR</span></span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">    If the instruction in IR and the next jalr use the same register,</span></span><br><span class="line"><span class="comment">    jalr_rs1idx_cam_irrdidx = 1</span></span><br><span class="line"><span class="comment">    This signal is used to prevent RAW hazard.</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// The add op to next-pc adder</span></span><br><span class="line">  <span class="keyword">output</span> bpu_wait,</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">    If dependency detected, bpu_wait = 1,</span></span><br><span class="line"><span class="comment">    pause the pipeline and wait until instruction of IR completes execution.</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">output</span> prdt_taken,  <span class="comment">// result, predict to jump -&gt; high</span></span><br><span class="line">  <span class="keyword">output</span> [`E203_PC_SIZE-<span class="number">1</span>:<span class="number">0</span>] prdt_pc_add_op1,</span><br><span class="line">  <span class="keyword">output</span> [`E203_PC_SIZE-<span class="number">1</span>:<span class="number">0</span>] prdt_pc_add_op2,</span><br><span class="line">  <span class="comment">// predicted_pc = prdt_pc_add_op1 + prdt_pc_add_op2</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">input</span>  dec_i_valid, <span class="comment">// valid for decode</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// The RS1 to read regfile</span></span><br><span class="line">  <span class="keyword">output</span> bpu2rf_rs1_ena, <span class="comment">// enable register file to read rs1</span></span><br><span class="line">  <span class="keyword">input</span>  ir_valid_clr, <span class="comment">// clear IR valid</span></span><br><span class="line">  <span class="comment">// when instruction in IR is cleared, dependency can be removed.</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">input</span>  [`E203_XLEN-<span class="number">1</span>:<span class="number">0</span>] rf2bpu_x1,  <span class="comment">// read x1 register ()</span></span><br><span class="line">  <span class="keyword">input</span>  [`E203_XLEN-<span class="number">1</span>:<span class="number">0</span>] rf2bpu_rs1, <span class="comment">// other registers for jalr</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// clock and reset (negative valid)</span></span><br><span class="line">  <span class="keyword">input</span>  clk,</span><br><span class="line">  <span class="keyword">input</span>  rst_n</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  <span class="comment">// The JAL and JALR is always jump, bxxx backward is predicted as taken</span></span><br><span class="line">  <span class="keyword">assign</span> prdt_taken   = (dec_jal | dec_jalr | (dec_bxx &amp; dec_bjp_imm[`E203_XLEN-<span class="number">1</span>]));</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  `E203_XLEN is the width of register</span></span><br><span class="line"><span class="comment">  BPU predicts to jump, if instr is jal or jalr.</span></span><br><span class="line"><span class="comment">  For conditional, MSB of dec_bjp_imm determines the symbol of offset.</span></span><br><span class="line"><span class="comment">  1 for negative number, backward jump, predict as taken;</span></span><br><span class="line"><span class="comment">  0 for positive number, forward jump, predict as not-taken.</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// The JALR with rs1 == x1 have dependency or xN have dependency</span></span><br><span class="line">  <span class="keyword">wire</span> dec_jalr_rs1x0 = (dec_jalr_rs1idx == `E203_RFIDX_WIDTH'd0);</span><br><span class="line">  <span class="comment">// assigned as 1 when jalr uses x0 (value is always 0), a special unconditional jump</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">wire</span> dec_jalr_rs1x1 = (dec_jalr_rs1idx == `E203_RFIDX_WIDTH'd1);</span><br><span class="line">  <span class="comment">// assigned as 1 when jalr uses x1 (used as return address register)</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">wire</span> dec_jalr_rs1xn = (~dec_jalr_rs1x0) &amp; (~dec_jalr_rs1x1);</span><br><span class="line">  <span class="comment">// assigned as 1 when jalr uses other registers (general registers)</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// check dependency</span></span><br><span class="line">  <span class="keyword">wire</span> jalr_rs1x1_dep = dec_i_valid &amp; dec_jalr &amp; dec_jalr_rs1x1 &amp; ((~oitf_empty) | (jalr_rs1idx_cam_irrdidx));</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  dependency occured at register x1:</span></span><br><span class="line"><span class="comment">  decode success, is a jalr instr., jalr and IR both use x1, OITF is not empty.</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  <span class="keyword">wire</span> jalr_rs1xn_dep = dec_i_valid &amp; dec_jalr &amp; dec_jalr_rs1xn &amp; ((~oitf_empty) | (~ir_empty));</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  If the value of xn can only be determined until EXU, it is considered dependency exists.</span></span><br><span class="line"><span class="comment">  It is considered to have dependency only if IR is not empty, instead of comparing the register number.</span></span><br><span class="line"><span class="comment">  This is in fact a conservative method.</span></span><br><span class="line"><span class="comment">  Such design simplifies hardware logic and reduces the cost of area and power,</span></span><br><span class="line"><span class="comment">  though decreases performance at the same time.</span></span><br><span class="line"><span class="comment">  But since E203 is designed for ultra-low power,</span></span><br><span class="line"><span class="comment">  a little loss of performance is acceptable.</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">wire</span> jalr_rs1xn_dep_ir_clr = (jalr_rs1xn_dep &amp; oitf_empty &amp; (~ir_empty)) &amp; (ir_valid_clr | (~ir_rs1en));</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  If only depend to IR stage (OITF is empty), then if IR is under clearing,</span></span><br><span class="line"><span class="comment">  or it does not use RS1 index, then we can also treat it as non-dependency</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// a FSM, determine the time to read value of rs1 to provide correct value for jalr</span></span><br><span class="line">  <span class="keyword">wire</span> rs1xn_rdrf_r; <span class="comment">// indicates whether CPU needs to read value from rs1</span></span><br><span class="line">  <span class="keyword">wire</span> rs1xn_rdrf_set = (~rs1xn_rdrf_r) &amp; dec_i_valid &amp; dec_jalr &amp; dec_jalr_rs1xn &amp; ((~jalr_rs1xn_dep) | jalr_rs1xn_dep_ir_clr);</span><br><span class="line">  <span class="keyword">wire</span> rs1xn_rdrf_clr = rs1xn_rdrf_r;</span><br><span class="line">  <span class="keyword">wire</span> rs1xn_rdrf_ena = rs1xn_rdrf_set |   rs1xn_rdrf_clr;</span><br><span class="line">  <span class="keyword">wire</span> rs1xn_rdrf_nxt = rs1xn_rdrf_set | (~rs1xn_rdrf_clr);</span><br><span class="line"></span><br><span class="line">  sirv_gnrl_dfflr <span class="variable">#(1) rs1xn_rdrf_dfflrs(rs1xn_rdrf_ena, rs1xn_rdrf_nxt, rs1xn_rdrf_r, clk, rst_n)</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">assign</span> bpu2rf_rs1_ena = rs1xn_rdrf_set;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">assign</span> bpu_wait = jalr_rs1x1_dep | jalr_rs1xn_dep | rs1xn_rdrf_set;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// generate operation number 1</span></span><br><span class="line">  <span class="keyword">assign</span> prdt_pc_add_op1 = (dec_bxx | dec_jal) ? pc[`E203_PC_SIZE-<span class="number">1</span>:<span class="number">0</span>]</span><br><span class="line">                          <span class="comment">// if jalr uses x0, use constant 0</span></span><br><span class="line">                         : (dec_jalr &amp; dec_jalr_rs1x0) ? `E203_PC_SIZE'b0</span><br><span class="line">                         : (dec_jalr &amp; dec_jalr_rs1x1) ? rf2bpu_x1[`E203_PC_SIZE-<span class="number">1</span>:<span class="number">0</span>]</span><br><span class="line">                         : rf2bpu_rs1[`E203_PC_SIZE-<span class="number">1</span>:<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">  <span class="comment">// generate operation number 2: offset by immediate number</span></span><br><span class="line">  <span class="keyword">assign</span> prdt_pc_add_op2 = dec_bjp_imm[`E203_PC_SIZE-<span class="number">1</span>:<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<p>在 RISC-V 结构中，<br><code>x1</code> 默认用作“返回地址”。<br>在大多数情况下，<br><code>jal</code> 和 <code>jalr</code> 会将下一条指令的地址返回到 <code>x1</code>，除非特别指定。<br>因此，在大多数情况下，地址将存储在 <code>x1</code> 中。<br>为了提高性能，<br>E203 为 <code>x1</code> 隐含了特殊的加速。</p>
+<div class="code-container" data-rel="Verilog"><figure class="iseeu highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">wire</span> dec_jalr_rs1x1 = (dec_jalr_rs1idx == `E203_RFIDX_WIDTH'd1);</span><br><span class="line"><span class="comment">// assigned as 1 when jalr uses x1 (used as return address register)</span></span><br></pre></td></tr></table></figure></div>
+<p>这行代码用于判断 <code>jalr</code> 是否使用了 <code>x1</code>。<br>此外，它还需要判断是否存在 RAW 冒险。<br>当满足以下条件时，存在 RAW 冒险：</p>
+<ul>
+<li>OITF 不为空，意味着一条长指令正在执行。结果可能会写回 <code>x1</code>。<br>（当然它可以使用其他寄存器，但这里应用了保守估计以减少面积。性能损失被忽略。）</li>
+<li>IR 寄存器中的指令会将结果写回 <code>x1</code>。</li>
+</ul>
+<p>所以</p>
+<div class="code-container" data-rel="Verilog"><figure class="iseeu highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">wire</span> jalr_rs1x1_dep = dec_i_valid &amp; dec_jalr &amp; dec_jalr_rs1x1 &amp; ((~oitf_empty) | (jalr_rs1idx_cam_irrdidx));</span><br></pre></td></tr></table></figure></div>
+<p>用于指示依赖性。下一行</p>
+<div class="code-container" data-rel="Verilog"><figure class="iseeu highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">assign</span> bpu_wait = jalr_rs1x1_dep | jalr_rs1xn_dep | rs1xn_rdrf_set;</span><br></pre></td></tr></table></figure></div>
+<p>如果检测到依赖性，则将 <code>bpu_wait</code> 拉高一个周期。<br>这样的信号将停止 IFU 的下一个 PC 生成，直到 RAW 冒险消失。<br>通常，这种延迟（停顿）会导致一个周期的性能损失。</p>
+<p>如果 <code>jalr</code> 使用了 <code>x0</code> 和 <code>x1</code> 以外的寄存器，<br>E203 没有应用特殊加速。<br>要读取 <code>xn</code>，需要寄存器堆的第一个读端口。<br>只有当端口为空时，才能读取 <code>xn</code>。<br>同时，IR 必须为空以防止 RAW 冒险<br>（同样，忽略性能损失）。<br>如果 RAW 冒险和读端口都空闲，<br>则拉高端口的使能并占用它。</p>
+<div class="code-container" data-rel="Verilog"><figure class="iseeu highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">wire</span> rs1xn_rdrf_set = (~rs1xn_rdrf_r) &amp; dec_i_valid &amp; dec_jalr &amp; dec_jalr_rs1xn &amp; ((~jalr_rs1xn_dep) | jalr_rs1xn_dep_ir_clr);</span><br><span class="line"><span class="keyword">wire</span> rs1xn_rdrf_clr = rs1xn_rdrf_r;</span><br><span class="line"><span class="keyword">wire</span> rs1xn_rdrf_ena = rs1xn_rdrf_set |   rs1xn_rdrf_clr;</span><br><span class="line"><span class="keyword">wire</span> rs1xn_rdrf_nxt = rs1xn_rdrf_set | (~rs1xn_rdrf_clr);</span><br><span class="line"></span><br><span class="line">sirv_gnrl_dfflr <span class="variable">#(1) rs1xn_rdrf_dfflrs(rs1xn_rdrf_ena, rs1xn_rdrf_nxt, rs1xn_rdrf_r, clk, rst_n)</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">assign</span> bpu2rf_rs1_ena = rs1xn_rdrf_set;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="访问内存"><a href="#访问内存" class="headerlink" title="访问内存"></a>访问内存</h3><p>为了提高代码密度，<br>E203 支持 16 位压缩 RISC-V 指令集。<br>因此，32 位指令与 16 位指令混合，<br>导致了 32 位指令的非对齐。</p>
+<div align="center">
+<img lazyload="" src="/images/loading.svg" data-src="/zh/images/e203/e203_32align.png" width="400" height="300">
+</div>
+<center>非对齐的 32 位指令</center>
+
+<p>为了处理这个问题，<br>E203 应用了剩余缓冲区 (leftover buffer)。<br>IFU 每次从 ITCM 或 BIU 获取 32 位数据。<br>如果 IFU 访问 ITCM，<br>由于 ITCM 由 SRAM 组成，<br>读取后，端口的值将保持不变（不变）直到下次读取。<br>这种特性节省了一个 64 位寄存器。</p>
+<p>E203 中 ITCM 的位宽是 64 位。<br>一次读取操作从端口读取 64 位数据，称为一个 Lane。<br>当通过地址递增来获取指令时，<br>IFU 由于 E203 中的 RISC-V 指令最长为 32 位，因此会多次从同一个 Lane 获取数据。<br>这减少了读取 SRAM 的次数，因为 IFU 可以从保持值的端口读取数据，直到所有数据都被读取。</p>
+<p>如果一条 32 位指令跨越了 64 位边界，<br>新的 64 位数据中的剩余 16 位将被存储在剩余缓冲区中，<br>并触发一次新的 SRAM 访问。<br>来自 SRAM 的新 64 位数据中的最低 16 位与剩余缓冲区中的 16 位<br>将被连接成一条完整的 32 位指令。<br>这相当于在一个周期内获取一条 32 位指令，<br>没有任何性能损失。</p>
+<p>如果遇到跳转指令或流水线刷新，<br>并且所需的指令跨越了 64 位边界，<br>那么需要两次连续的 SRAM 读取。<br>这意味着获取指令必须花费两个周期，<br>引入一个周期的损失。<br>E203 选择放弃优化，因为它会带来过多的额外面积和功耗成本。</p>
+<hr>
+<h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><p>[1] 胡振波, <em>RISC-V架构与嵌入式开发快速入门</em>, 第1版. 北京: 人民邮电出版社, 2019.<br>[2] 胡振波, <em>手把手教你设计CPU——RISC-V处理器</em>, 第1版. 北京: 人民邮电出版社, 2018.</p>
+
+		</div>
+
+		
+
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/zh/categories/%E7%89%A9%E7%90%86/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">电动力学</span>
+						<span class="post-nav-item">上一篇</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/zh/categories/%E7%89%A9%E7%90%86/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">量子力学</span>
+						<span class="post-nav-item">下一篇</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div id="giscus-container"></div>
+    <script data-swup-reload-script defer>
+        async function loadGiscus() {
+            const giscusConfig = {
+                'src': 'https://giscus.app/client.js',
+                'data-repo': 'EleCannonic/blog_discussion',
+                'data-repo-id': 'R_kgDOPxvgCw',
+                'data-category': 'General',
+                'data-category-id': 'DIC_kwDOPxvgC84Cvj7R',
+                'data-mapping': 'pathname',
+                'data-strict': '0',
+                'data-reactions-enabled': '1',
+                'data-emit-metadata': '1',
+                'data-theme': 'preferred_color_scheme',
+                'data-lang': 'en',
+                'data-input-position': 'bottom',
+                'data-loading': 'lazy',
+                'crossorigin': 'anonymous',
+                'async': true
+            }
+            const giscusScript = document.createElement('script');
+            for (const key in giscusConfig) {
+                giscusScript.setAttribute(key, giscusConfig[key]);
+            }
+            document.getElementById('giscus-container').appendChild(giscusScript);
+        }
+        if ('true') {
+            let loadGiscusTimeout = setTimeout(() => {
+                loadGiscus();
+                clearTimeout(loadGiscusTimeout);
+            }, 1000);
+        } else {
+            document.addEventListener('DOMContentLoaded', loadGiscus);
+        }
+    </script>
+
+
+        
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">目录</div>
+		<div class="page-title">一起阅读 hbird_e203 CPU源代码</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%8C%87%E4%BB%A4%E9%9B%86%E6%9E%B6%E6%9E%84-ISA"><span class="nav-text">1. 指令集架构 (ISA)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%A0%87%E5%87%86-DFF-%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-text">2. 标准 DFF 寄存器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-if-else-%E5%92%8C-assign"><span class="nav-text">3. if-else 和 assign</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E6%95%B0%E6%8D%AE%E5%86%92%E9%99%A9"><span class="nav-text">4. 数据冒险</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%8C%87%E4%BB%A4%E8%8E%B7%E5%8F%96-IF"><span class="nav-text">5. 指令获取 (IF)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ITCM"><span class="nav-text">ITCM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E5%AF%B9%E9%BD%90%E6%8C%87%E4%BB%A4"><span class="nav-text">非对齐指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E6%8C%87%E4%BB%A4"><span class="nav-text">分支指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E9%A2%84%E6%B5%8B"><span class="nav-text">分支预测</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-E200-IFU-%E5%AE%9E%E7%8E%B0"><span class="nav-text">6. E200 IFU 实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B4%E4%BD%93%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5"><span class="nav-text">整体设计理念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mini-decode-%E5%BE%AE%E5%9E%8B%E8%AF%91%E7%A0%81"><span class="nav-text">Mini-decode (微型译码)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ready-Valid%E6%8F%A1%E6%89%8B"><span class="nav-text">Ready&#x2F;Valid握手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84-BPU-%E5%88%86%E6%94%AF%E9%A2%84%E6%B5%8B%E5%99%A8"><span class="nav-text">简单的 BPU 分支预测器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E5%86%85%E5%AD%98"><span class="nav-text">访问内存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99%EF%BC%9A"><span class="nav-text">参考资料：</span></a></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2025</span>
+              -
+            
+            2026&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/zh/">EleCannonic</a>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.2</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="站内搜索您需要的内容..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+<script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/Swup.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupSlideTheme.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupScriptsPlugin.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupProgressPlugin.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupScrollPlugin.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupPreloadPlugin.min.js" ></script>
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	<script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/imageViewer.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/utils.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/main.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/navbarShrink.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/scrollTopBottom.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/lightDarkSwitch.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/categoryList.js" ></script>
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/localSearch.js" ></script>
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/codeBlock.js" ></script>
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/lazyload.js" ></script>
+
+
+
+    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/runtime.js" ></script>
+    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/odometer.min.js" ></script>
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/assets/odometer-theme-minimal.css">
+
+
+
+  <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/Typed.min.js" ></script>
+  <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/plugins/typed.js" ></script>
+
+
+
+
+
+
+
+    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/anime.min.js" ></script>
+
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/tocToggle.js" data-swup-reload-script></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/toc.js" data-swup-reload-script></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/plugins/tabs.js" data-swup-reload-script></script>
+
+
+<script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/moment-with-locales.min.js" data-swup-reload-script></script>
+<script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/essays.js" data-swup-reload-script></script>
+
+
+
+
+	
+</body>
+
+</html>
